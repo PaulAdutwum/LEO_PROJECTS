@@ -8,8 +8,9 @@ class ArrayList:
         self.capacity = 4
         self.size = 0
         self.data = [None] * self.capacity
+        self.load_factor = 0.75
 
-    def resize(self):
+    def _resize(self):
         """Doubles the capacity of the array when it runs out of space."""
         new_capacity = self.capacity * 2
         new_data = [None] * new_capacity
@@ -22,8 +23,8 @@ class ArrayList:
 
     def add(self, element):
         """Appends an element to the end of the ArrayList."""
-        if self.size == self.capacity:
-            self.resize()
+        if self.size >= self.capacity * self.load_factor:
+            self._resize()
         self.data[self.size] = element
         self.size += 1
 
@@ -32,8 +33,8 @@ class ArrayList:
         if index < 0 or index > self.size:
             raise IndexError("Index out of bounds")
 
-        if self.size == self.capacity:
-            self.resize()
+        if self.size >= self.capacity * self.load_factor:
+            self._resize()
 
         for i in range(self.size, index, -1):
             self.data[i] = self.data[i - 1]
@@ -65,7 +66,7 @@ class ArrayList:
         """Returns the number of elements in the ArrayList."""
         return self.size
 
-    def isEmpty(self):
+    def is_empty(self):
         """Returns True if the ArrayList is empty, else False."""
         return self.size == 0
 
@@ -73,26 +74,3 @@ class ArrayList:
         """Returns a string representation of the current ArrayList."""
         return "[" + ", ".join(str(self.data[i]) for i in range(self.size)) + "]"
 
-
-# ----- TEST CASES -----
-
-if __name__ == "__main__":
-    arr = ArrayList()
-
-    print("Adding elements:")
-    for i in range(6):
-        arr.add(i)
-        print(arr)
-
-    print("\nInsert at index 2:")
-    arr.insert(2, 99)
-    print(arr)
-
-    print("\nGet element at index 3:", arr.get(3))
-
-    print("\nRemove element at index 4:")
-    arr.remove(4)
-    print(arr)
-
-    print("\nCurrent size:", arr.get_size())
-    print("Is empty:", arr.isEmpty())

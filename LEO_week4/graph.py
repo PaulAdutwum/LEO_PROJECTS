@@ -4,8 +4,7 @@ class Graph:
     def __init__(self, directed=False):
         """
         Initialize an empty Graph.
-        
-        :param directed: If True, edges are one-way; otherwise edges are two-way.
+    
         """
         self.adj = defaultdict(list) 
         self.directed = directed

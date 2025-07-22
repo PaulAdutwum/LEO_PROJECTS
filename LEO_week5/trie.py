@@ -1,7 +1,7 @@
 class TrieNode:
     def __init__(self):
         """
-        - children: A dictionary to hold children TrieNodes for each character.
+        - initialize a dictionary to hold children TrieNodes for each character.
         - is_end_of_word: Flag indicating if the node terminates a complete word.
         """
         self.children = {}

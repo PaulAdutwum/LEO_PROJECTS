@@ -19,9 +19,7 @@ class Trie:
     def insert(self, word):
         """
         Inserts a word into the Trie.
-
-        Args:
-            word (str): The word to be inserted.
+        
         """
         node = self.root
         for char in word.lower():  # normalize to lowercase
@@ -33,10 +31,6 @@ class Trie:
     def search(self, word):
         """
         Searches for an exact word in the Trie.
-
-        Args:
-            word (str): The word to search.
-
         Returns:
             bool: True if the word exists in the Trie, False otherwise.
         """
@@ -47,20 +41,14 @@ class Trie:
         """
         Checks if any word in the Trie starts with the given prefix.
 
-        Args:
-            prefix (str): The prefix to check.
-
         Returns:
-            bool: True if any word in the Trie starts with the prefix, False otherwise.
+         True if any word in the Trie starts with the prefix, False otherwise.
         """
         return self._traverse(prefix.lower()) is not None
 
     def _traverse(self, text):
         """
         Helper method to walk through the Trie along the given text (prefix or word).
-
-        Args:
-            text (str): The word or prefix to traverse.
 
         Returns:
             TrieNode or None: The final node if found, otherwise None.

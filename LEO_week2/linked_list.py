@@ -24,6 +24,7 @@ class LinkedList:
                 current = current.next
             current.next = new_node
         self._size += 1  
+        
 
     def insert(self, index, element):
     #Insert an element at the specified index.

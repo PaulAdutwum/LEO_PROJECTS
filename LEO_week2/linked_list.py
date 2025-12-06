@@ -13,7 +13,7 @@ class LinkedList:
         self._size = 0
 
     def add(self, element):
-    #Add an element to the end of the LinkedList.
+    #Add an element to the tail of the LinkedList.
         
         new_node = Node(element)
         if not self.head:
@@ -44,7 +44,7 @@ class LinkedList:
         self._size +=1 
 
     def get(self, index):
-    #Retrieve the element at the specified index.
+    #Retrieve the element at the specified index from the list.
         
         if index < 0 or index >= self._size:
             raise IndexError("Index out of bounds")
